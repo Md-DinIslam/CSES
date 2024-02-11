@@ -23,7 +23,9 @@ public:
     }
 
     void Apply(int s, int e, ll x, ll x2, int i) {
+        // Getting sum of range in lazy(1st)...
         sg[i] += x * (e - s + 1);
+        // Getting sum of range in lazy(2nd)...
         sg[i] += x2 * ((1ll * e * (e + 1) / 2) - (1ll * s * (s - 1) / 2));
 
         lz[i] += x;
@@ -37,17 +39,18 @@ public:
         lz2[i] = 0;
     }
 
+    // Use either build(1st) or build(2nd).....
     void build(int s = 1, int e = n, int i = 1) {
         if (s == e) sg[i] = v[s];
         else {
             int mid = (s + e) / 2;
-            Push(s, mid, e, i);
             build(s, mid, 2 * i);
             build(mid + 1, e, 2 * i + 1);
             sg[i] = sg[2 * i] + sg[2 * i + 1];
         }
     }
 
+    // Use either build(1st) or build(2nd).....
     void build2(int indx, ll val, int s = 1, int e = n, int i = 1) {
         if (s == e) sg[i] = val;
         else {
