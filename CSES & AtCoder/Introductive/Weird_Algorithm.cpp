@@ -1,29 +1,32 @@
+/* GREEN UNIVERSITY OF BANGLADESH
+    Md DinIslam, Batch-221 (CSE)
+*/
 #include <bits/stdc++.h>
 using namespace std;
-int main()
-{
-//     ios_base::sync_with_stdio(false);
-//     cin.tie(NULL);
-// #ifndef ONLINE_JUDGE
-//     freopen("input.txt", "r", stdin);
-//     freopen("output.txt", "w", stdout);
-// #endif
-    long long n;
-    cin>>n;
-    // vector<int> ans;
-    while(true){
-        // ans.push_back(n);
-        cout<<n<<" ";
-        if(n == 1) break;
-        if(n % 2 == 0){
-            n = n/2;
-        }
-        else{
-            n = n * 3 + 1;
-        }
+ 
+// Debug..
+#ifdef LOCAL
+#include "debug.h"
+#endif
+ 
+#define ll long long
+void solve() {
+    ll n;
+    cin >> n;
+    while (1) {
+        cout << n << " ";
+        if (n == 1) break;
+        if (n & 1) n = n * 3 + 1;
+        else n /= 2;
     }
-    // for(auto &i: ans){
-    //     cout<<i<<" ";
+}
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    int t = 1;
+    // cin >> t;
+    while (t--) solve();
+    // for (int i = 1; i <= t; ++i) { // Kickstart
+    //     cout << "Case #" << i << ": "; solve();
     // }
     return 0;
 }
