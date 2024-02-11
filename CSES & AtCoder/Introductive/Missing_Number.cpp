@@ -1,33 +1,32 @@
+/* GREEN UNIVERSITY OF BANGLADESH
+    Md DinIslam, Batch-221 (CSE)
+*/
 #include <bits/stdc++.h>
 using namespace std;
-void PrintVec(vector<int> &v){
-    for(auto &x:v){
-        cout<<x<<" ";
+ 
+// Debug..
+#ifdef LOCAL
+#include "debug.h"
+#endif
+ 
+#define ll long long
+void solve() {
+    ll n;
+    cin >> n;
+    ll sum = 0;
+    for (int i = 0, x; i < n - 1; ++i) {
+        cin >> x;
+        sum += x;
     }
-    cout<<endl;
+    cout << (n * (n + 1) / 2) - sum;
 }
-int main()
-{
-//     ios_base::sync_with_stdio(false);
-//     cin.tie(NULL);
-// #ifndef ONLINE_JUDGE
-//     freopen("input.txt", "r", stdin);
-//     freopen("output.txt", "w", stdout);
-// #endif
-    int n;
-    cin>>n;
-    vector<int> ans(n-1);
-    for(int i = 0;i<n-1; i++){
-        cin>>ans[i];
-    }
-    sort(ans.begin(),ans.end());
-    // PrintVec(ans);
-    for(int i = 0;i<n;i++){
-        if(ans[i] != i+1){
-            cout<<i+1<<endl;
-            break;
-        }
-    }
-    // PrintVec(ans);
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    int t = 1;
+    // cin >> t;
+    while (t--) solve();
+    // for (int i = 1; i <= t; ++i) { // Kickstart
+    //     cout << "Case #" << i << ": "; solve();
+    // }
     return 0;
 }
